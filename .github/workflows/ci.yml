@@ -1,0 +1,17 @@
+name: Test Build Docker
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Récupérer le code du dépôt
+      uses: actions/checkout@v4
+
+    - name: Tester la construction de l'image Docker
+      run: |
+        docker build -t mon-site-web .
